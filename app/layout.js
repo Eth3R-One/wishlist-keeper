@@ -1,4 +1,5 @@
 import SiteHeader from "@/components/common/SiteHeader";
+import { ThemeProvider } from "@/providers/theme-provider";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -13,8 +14,15 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<SiteHeader />
-				{children}
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<SiteHeader />
+					{children}
+				</ThemeProvider>
 			</body>
 		</html>
 	);

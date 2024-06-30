@@ -1,14 +1,9 @@
-import { FlipWords } from "@/components/ui/flip-words";
-
 export default function Home() {
 	return (
-		<div className="flex min-h-screen flex-col items-center justify-between py-24 px-8 bg-slate-300 text-white">
-			<section className="p-4">
-				<div className="container flex flex-col center items-center text-center">
-					<h1 className="text-2xl font-bold">Home Page</h1>
-				</div>
-				<FlipWords words={["hello, there"]} className={"text-white-200"} />
-			</section>
-		</div>
+		<>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, et
+			delectus ipsam ex nam nostrum dolore eius! Possimus, iusto labore illo
+			quia commodi, est consectetur pariatur iste eligendi reiciendis itaque!
+		</>
 	);
 }
