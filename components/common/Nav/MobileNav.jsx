@@ -17,9 +17,9 @@ export default function MobileNav() {
 				<Button
 					variant="link"
 					size="icon"
-					className="dark:text-slate-950 md:hidden mx-1 "
+					className="dark:text-indigo-950 md:hidden mx-1 "
 				>
-					<MenuIcon />
+					<MenuIcon className="dark:text-indigo-200" />
 				</Button>
 			</SheetTrigger>
 

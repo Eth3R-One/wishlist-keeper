@@ -7,15 +7,15 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const SiteHeader = () => {
 	return (
-		<header className="w-full bg-slate-400">
+		<header className="w-full bg-indigo-200 dark:bg-indigo-900">
 			<div className="flex justify-between items-center">
 				<MobileNav />
 				<Link
 					href={"/"}
-					className="md:px-10 gap-1 flex flex-row items-center justify-items-center justify-center"
+					className="md:px-10 gap-1 flex flex-row items-center justify-items-center justify-center "
 				>
-					<Notebook className="dark:text-slate-900" />
-					<span className="dark:text-slate-900 items-center">
+					<Notebook className="dark:text-indigo-200" />
+					<span className="dark:text-indigo-200 items-center">
 						Wishlist Keeper
 					</span>
 				</Link>

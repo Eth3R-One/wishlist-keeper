@@ -1,9 +1,16 @@
+import { Author } from "@/components/Author";
+import { Footer } from "@/components/Footer";
+import { Hero } from "@/components/Hero";
+import { Introduction } from "@/components/Introduction";
+
 export default function Home() {
 	return (
 		<>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, et
-			delectus ipsam ex nam nostrum dolore eius! Possimus, iusto labore illo
-			quia commodi, est consectetur pariatur iste eligendi reiciendis itaque!
+			<Hero />
+			<Introduction />
+
+			<Author />
+			<Footer />
 		</>
 	);
 }
