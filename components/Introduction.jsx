@@ -37,7 +37,7 @@ export function Introduction() {
 						</li>
 					))}
 				</ul>
-				<p className="mt-10">
+				<p className="mt-5">
 					<Link
 						href="/features"
 						className="text-base font-medium text-indigo-600 hover:text-blue-800 flex items-center  hover:underline"
@@ -46,6 +46,14 @@ export function Introduction() {
 						<span aria-hidden="true">&rarr;</span>
 					</Link>
 				</p>
+				<div className="pt-10 flex items-center justify-center">
+					<Link
+						href={"/login"}
+						className="px-5 bg-indigo-950 text-slate-200 py-2 rounded-xl"
+					>
+						Get Started Today
+					</Link>
+				</div>
 			</Container>
 		</section>
 	);
