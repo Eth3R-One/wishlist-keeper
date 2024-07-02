@@ -40,7 +40,7 @@ export function Introduction() {
 				<p className="mt-5">
 					<Link
 						href="/features"
-						className="text-base font-medium text-indigo-600 hover:text-blue-800 flex items-center  hover:underline"
+						className="text-base font-medium text-indigo-600 hover:text-blue-800 flex items-center hover:underline dark:text-teal-500"
 					>
 						Discover More
 						<span aria-hidden="true">&rarr;</span>
