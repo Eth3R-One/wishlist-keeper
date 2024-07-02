@@ -1,7 +1,7 @@
 "use client";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
 import { cn } from "@/utils/cn";
+import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
 
 export const FlipWords = ({ words, duration = 3000, className }) => {
 	const [currentWord, setCurrentWord] = useState(words[0]);
@@ -57,7 +57,7 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
 				)}
 				key={currentWord}
 			>
-				{currentWord.split("").map((letter, index) => (
+				{currentWord.split("-").map((word, index) => (
 					<motion.span
 						key={currentWord + index}
 						initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
@@ -68,7 +68,7 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
 						}}
 						className="inline-block"
 					>
-						{letter}
+						{word}{" "}
 					</motion.span>
 				))}
 			</motion.div>
