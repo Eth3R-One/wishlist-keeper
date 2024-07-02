@@ -1,4 +1,4 @@
-import { Author } from "@/components/Author";
+import AboutUs from "@/components/AboutUs";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Introduction } from "@/components/Introduction";
@@ -9,7 +9,8 @@ export default function Home() {
 			<Hero />
 			<Introduction />
 
-			<Author />
+			{/* <Author /> */}
+			<AboutUs />
 			<Footer />
 		</>
 	);

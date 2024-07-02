@@ -9,7 +9,7 @@ export function Hero() {
 		<header className="overflow-hidden lg:px-5">
 			<div className="mx-auto grid max-w-6xl grid-cols-1 grid-rows-[auto_1fr] gap-y-16 pt-16 md:pt-20 lg:grid-cols-12 lg:gap-y-20 lg:px-3 lg:pb-36 lg:pt-20 xl:py-32">
 				<div className="relative flex items-end lg:col-span-5 lg:row-span-2">
-					<div className="absolute -bottom-12 -top-20 left-0 right-1/2 z-10 rounded-br-6xl dark:bg-indigo-800 bg-indigo-400 text-white/10 md:bottom-8 lg:-inset-y-32 lg:left-[-100vw] lg:right-full lg:-mr-40">
+					<div className="absolute -bottom-12 -top-20 left-0 right-1/2 z-10 rounded-br-6xl dark:bg-indigo-900 bg-indigo-400 text-white/10 md:bottom-8 lg:-inset-y-32 lg:left-[-100vw] lg:right-full lg:-mr-40">
 						<GridPattern
 							x="100%"
 							y="100%"
@@ -50,7 +50,7 @@ export function Hero() {
 						<div className="mt-8 flex gap-4">
 							<Link
 								href="/login"
-								className="bg-indigo-950 px-7 py-2 text-slate-200 rounded"
+								className="bg-indigo-950 dark:bg-slate-200 dark:text-indigo-950 px-7 py-2 text-slate-200 rounded text-xl"
 							>
 								Get started
 							</Link>
