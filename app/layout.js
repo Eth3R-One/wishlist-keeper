@@ -8,7 +8,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
 	title: "Wishlist keeper",
-	description: "A wishlist keeping and tracking app",
+	description:
+		"A wishlist keeping and tracking app. Never lose track of your wishlist items again. Collect, categorize, and monitor your favorite products from different websites.",
+
+	openGraph: {
+		images: [`${process.env.NEXT_PUBLIC_BASE_URL}/api/og`],
+	},
 };
 
 export default function RootLayout({ children }) {
