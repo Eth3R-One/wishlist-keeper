@@ -6,15 +6,17 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-	title: "Wishlist keeper",
-	description:
-		"A wishlist keeping and tracking app. Never lose track of your wishlist items again. Collect, categorize, and monitor your favorite products from different websites.",
+export async function generateMetadata({ params, searchParams }, parent) {
+	return {
+		title: "Wishlist keeper",
+		description:
+			"A wishlist keeping and tracking app. Never lose track of your wishlist items again. Collect, categorize, and monitor your favorite products from different websites.",
 
-	openGraph: {
-		images: [`/api/og`],
-	},
-};
+		openGraph: {
+			images: [`/api/og`],
+		},
+	};
+}
 
 export default function RootLayout({ children }) {
 	return (
