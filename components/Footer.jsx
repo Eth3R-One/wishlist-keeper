@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function Footer() {
 	return (
-		<footer className="relative pb-20 pt-5 sm:pb-32 sm:pt-14">
+		<footer className="sticky top-[100vh] pb-20 pt-5 sm:pb-32 sm:pt-14">
 			<div className="absolute inset-x-0 top-0 h-32 text-slate-900/10 [mask-image:linear-gradient(white,transparent)]">
 				<GridPattern x="50%" />
 			</div>

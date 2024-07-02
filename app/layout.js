@@ -1,3 +1,4 @@
+import { Footer } from "@/components/Footer";
 import SiteHeader from "@/components/common/SiteHeader";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Inter } from "next/font/google";
@@ -13,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} dark:bg-indigo-950`}>
+			<body className={`${inter.className} dark:bg-indigo-950 min-h-screen`}>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
 				>
 					<SiteHeader />
 					{children}
+					<Footer />
 				</ThemeProvider>
 			</body>
 		</html>
