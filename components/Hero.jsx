@@ -19,11 +19,10 @@ export function Hero() {
 					<div className="relative z-10 mx-auto flex w-64 rounded-xl bg-slate-600 shadow-xl md:w-80 lg:w-auto">
 						<Image
 							className="w-full rounded-lg"
-							src="/hero.avif"
+							src="/hero2.jpeg"
 							width={1080}
 							height={1080}
-							alt=""
-							priority
+							alt="items image"
 						/>
 					</div>
 				</div>
