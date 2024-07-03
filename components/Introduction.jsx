@@ -10,7 +10,7 @@ export function Introduction() {
 			aria-label="Introduction"
 			className="pb-16 pt-20 sm:pb-20 md:pt-36 lg:py-32"
 		>
-			<Container className="p-20 rounded-6xl bg-slate-50 dark:bg-indigo-900 dark:text-slate-200 text-slate-800">
+			<Container className="p-20 lg:rounded-6xl rounded-4xl bg-slate-50 dark:bg-indigo-900 dark:text-slate-200 text-slate-800">
 				<p className="text-6xl  pb-10 mb-10 font-bold  flex items-center justify-center">
 					Welcome to Wishlist Organizer
 				</p>

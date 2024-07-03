@@ -1,6 +1,13 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+	Sheet,
+	SheetContent,
+	SheetDescription,
+	SheetTitle,
+	SheetTrigger,
+} from "@/components/ui/sheet";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { Menu as MenuIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -24,6 +31,10 @@ export default function MobileNav() {
 			</SheetTrigger>
 
 			<SheetContent side="left" onClick={(e) => setOpen(!open)}>
+				<VisuallyHidden.Root>
+					<SheetTitle>Menu</SheetTitle>
+					<SheetDescription>Mobile menu</SheetDescription>
+				</VisuallyHidden.Root>
 				<div className=" min-h-screen">
 					<div className="flex flex-col p-10 items-start ">
 						{navBarlinks.map((item, index) => (

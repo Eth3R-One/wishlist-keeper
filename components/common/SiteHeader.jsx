@@ -7,7 +7,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const SiteHeader = () => {
 	return (
-		<header className="w-full bg-indigo-200 dark:bg-indigo-900">
+		<header className="w-full bg-indigo-200 dark:bg-indigo-900 rounded-b-lg">
 			<div className="flex justify-between items-center">
 				<MobileNav />
 				<Link
