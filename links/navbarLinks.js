@@ -4,6 +4,6 @@ export const navBarlinks = [
 	{ name: "Features", link: "/features" },
 	{ name: "How It Works", link: "/how-it-works" },
 
-	{ name: "Login", link: "/login" },
-	{ name: "Sign up", link: "/sign-up" },
+	// { name: "Login", link: "/login" },
+	// { name: "Sign up", link: "/sign-up" },
 ];

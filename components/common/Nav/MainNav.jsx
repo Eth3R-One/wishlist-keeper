@@ -9,6 +9,18 @@ export default function MainNav() {
 					{item?.name}
 				</Link>
 			))}
+			<Link
+				href={"/login"}
+				className=" px-5 py-2 bg-indigo-600 rounded-lg text-white"
+			>
+				Login
+			</Link>
+			<Link
+				href={"/sign-up"}
+				className=" px-5 py-2 bg-fuchsia-600 rounded-lg text-white "
+			>
+				Sign Up
+			</Link>
 		</div>
 	);
 }
