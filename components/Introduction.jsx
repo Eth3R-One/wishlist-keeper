@@ -14,7 +14,7 @@ export function Introduction() {
 				<p className="text-6xl  pb-10 mb-10 font-bold  flex items-center justify-center">
 					Welcome to Wishlist Organizer
 				</p>
-				<p className="my-4 pb-10 text-slate-400">
+				<p className="my-4 pb-10 text-slate-50">
 					Imagine having all your favorite products from various websites
 					neatly organized in one place. Wishlist Organizer is your
 					one-stop solution for managing and categorizing your shopping

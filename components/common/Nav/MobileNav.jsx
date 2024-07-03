@@ -25,6 +25,7 @@ export default function MobileNav() {
 					variant="link"
 					size="icon"
 					className="dark:text-indigo-950 md:hidden mx-1 "
+					aria-label="menu button"
 				>
 					<MenuIcon className="dark:text-indigo-200" />
 				</Button>
