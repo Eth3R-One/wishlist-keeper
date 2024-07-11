@@ -4,12 +4,14 @@ import MobileNav from "./Nav/MobileNav";
 
 import { Notebook } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { auth } from "@/auth";
 
-const SiteHeader = () => {
+const SiteHeader = async () => {
+	const session = await auth();
 	return (
 		<header className="w-full bg-indigo-200 dark:bg-indigo-900 rounded-b-lg">
 			<div className="flex justify-between items-center">
-				<MobileNav />
+				<MobileNav session={session} />
 				<Link
 					href={"/"}
 					className="md:px-10 gap-1 flex flex-row items-center justify-items-center justify-center "
