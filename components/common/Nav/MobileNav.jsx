@@ -13,8 +13,9 @@ import { useState } from "react";
 
 import { navBarlinks } from "@/links/navbarLinks";
 import Link from "next/link";
+import LogoutButton from "./LogoutButton";
 
-export default function MobileNav() {
+export default function MobileNav({ session }) {
 	const [open, setOpen] = useState(false);
 
 	return (
@@ -50,23 +51,42 @@ export default function MobileNav() {
 								{item?.name}
 							</Link>
 						))}
-					</div>
-					<div className="sticky top-[100vh] pb-10 mb-20 pt-5">
-						<div className=" flex flex-row items-center justify-center gap-5">
+
+						{session && (
 							<Link
-								href={"/login"}
-								className=" px-5 py-2 bg-indigo-600 rounded-lg text-white"
+								href={"/wishlist"}
+								className="hover:underline m-2 bg-indigo-500 dark:bg-indigo-950 border border-indigo-950 dark:border-white  rounded text-white gap-1 text-l py-1 p-5"
 							>
-								Login
+								Wish list
 							</Link>
-							<Link
-								href={"/sign-up"}
-								className=" px-5 py-2 bg-fuchsia-600 rounded-lg text-white "
-							>
-								Sign Up
-							</Link>
-						</div>
+						)}
 					</div>
+					{
+						<>
+							<div className="sticky top-[100vh] pb-10 mb-20 pt-5">
+								<div className=" flex flex-row items-center justify-center gap-5">
+									{session ? (
+										<LogoutButton />
+									) : (
+										<>
+											<Link
+												href={"/login"}
+												className=" px-5 py-2 bg-indigo-600 rounded-lg text-white"
+											>
+												Login
+											</Link>
+											<Link
+												href={"/sign-up"}
+												className=" px-5 py-2 bg-fuchsia-600 rounded-lg text-white "
+											>
+												Sign Up
+											</Link>
+										</>
+									)}
+								</div>
+							</div>
+						</>
+					}
 				</div>
 			</SheetContent>
 		</Sheet>
