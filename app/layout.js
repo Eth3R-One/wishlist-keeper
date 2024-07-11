@@ -2,6 +2,8 @@ import { Footer } from "@/components/Footer";
 import SiteHeader from "@/components/common/SiteHeader";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Inter } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,6 +24,16 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={`${inter.className} dark:bg-indigo-950 min-h-screen`}>
+				<ToastContainer
+					position="top-right"
+					autoClose={5000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+				/>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
