@@ -1,10 +1,19 @@
 import Image from "next/image";
 
 import { GridPattern } from "@/components/GridPattern";
+import { getBlurData } from "@/utils/image-blur-generator";
 import Link from "next/link";
 import { FlipWords } from "./ui/flip-words";
 
-export function Hero() {
+import fs from "node:fs/promises";
+import { getPlaiceholder } from "plaiceholder";
+
+export async function Hero() {
+	const src = "/hero2.jpeg";
+	const buffer = await fs.readFile(`./public${src}`);
+
+	const { base64 } = await getPlaiceholder(buffer);
+
 	return (
 		<header className="overflow-hidden lg:px-5">
 			<div className="mx-auto grid max-w-6xl grid-cols-1 grid-rows-[auto_1fr] gap-y-16 pt-16 md:pt-20 lg:grid-cols-12 lg:gap-y-20 lg:px-3 lg:pb-36 lg:pt-20 xl:py-32">
@@ -23,7 +32,8 @@ export function Hero() {
 							width={1080}
 							height={1080}
 							alt="items image"
-							priority
+							placeholder="blur"
+							blurDataURL={base64}
 						/>
 					</div>
 				</div>
