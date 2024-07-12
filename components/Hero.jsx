@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { GridPattern } from "@/components/GridPattern";
-import { getBlurData } from "@/utils/image-blur-generator";
 import Link from "next/link";
 import { FlipWords } from "./ui/flip-words";
 
