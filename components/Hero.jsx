@@ -4,13 +4,14 @@ import { GridPattern } from "@/components/GridPattern";
 import Link from "next/link";
 import { FlipWords } from "./ui/flip-words";
 
-import fs from "node:fs/promises";
+import fs from "fs";
+
 import { getPlaiceholder } from "plaiceholder";
 
 export async function Hero() {
 	const src = "/images/hero.jpeg";
-	const buffer = await fs.readFile(`./public${src}`);
-
+	const buffer = await fs.readFileSync(`./public${src}`);
+	console.log(buffer);
 	const { base64 } = await getPlaiceholder(buffer);
 
 	return (
