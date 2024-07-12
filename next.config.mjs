@@ -10,5 +10,6 @@ const nextConfig = {
 		],
 	},
 };
+export default withPlaiceholder(nextConfig);
 
-export default nextConfig;
+// export default nextConfig;
