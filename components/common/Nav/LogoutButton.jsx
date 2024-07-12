@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 const LogoutButton = () => {
 	return (
 		<button
-			onClick={() => {
-				signOut({
+			onClick={async () => {
+				await signOut({
 					callbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/login`,
 				});
 				toast.info("User logged out!");
