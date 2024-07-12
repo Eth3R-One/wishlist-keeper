@@ -22,7 +22,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning={true}>
 			<body className={`${inter.className} dark:bg-indigo-950 min-h-screen`}>
 				<ToastContainer
 					position="top-right"
@@ -40,6 +40,7 @@ export default function RootLayout({ children }) {
 					enableSystem
 					disableTransitionOnChange
 				>
+					{" "}
 					<SiteHeader />
 					{children}
 					<Footer />
