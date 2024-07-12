@@ -3,17 +3,9 @@ import Image from "next/image";
 import { GridPattern } from "@/components/GridPattern";
 import Link from "next/link";
 import { FlipWords } from "./ui/flip-words";
-
-import fs from "fs";
-
-import { getPlaiceholder } from "plaiceholder";
+import HeroImage from "../public/images/hero.jpeg";
 
 export async function Hero() {
-	const src = "/images/hero.jpeg";
-	const buffer = await fs.readFileSync(`./public${src}`);
-	console.log(buffer);
-	const { base64 } = await getPlaiceholder(buffer);
-
 	return (
 		<header className="overflow-hidden lg:px-5">
 			<div className="mx-auto grid max-w-6xl grid-cols-1 grid-rows-[auto_1fr] gap-y-16 pt-16 md:pt-20 lg:grid-cols-12 lg:gap-y-20 lg:px-3 lg:pb-36 lg:pt-20 xl:py-32">
@@ -28,12 +20,11 @@ export async function Hero() {
 					<div className="relative z-10 mx-auto flex w-64 rounded-xl bg-slate-600 shadow-xl md:w-80 lg:w-auto">
 						<Image
 							className="w-full rounded-lg"
-							src={src.replace("./public", "")}
+							src={HeroImage}
 							width={1080}
 							height={1080}
 							alt="items image"
 							placeholder="blur"
-							blurDataURL={base64}
 						/>
 					</div>
 				</div>
