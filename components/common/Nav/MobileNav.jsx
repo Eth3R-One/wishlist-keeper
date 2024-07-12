@@ -4,10 +4,10 @@ import {
 	Sheet,
 	SheetContent,
 	SheetDescription,
+	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
 } from "@/components/ui/sheet";
-import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { Menu as MenuIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -26,17 +26,18 @@ export default function MobileNav({ session }) {
 					variant="link"
 					size="icon"
 					className="dark:text-indigo-950 md:hidden mx-1 "
-					aria-label="menu button"
 				>
 					<MenuIcon className="dark:text-indigo-200" />
 				</Button>
 			</SheetTrigger>
 
 			<SheetContent side="left" onClick={(e) => setOpen(!open)}>
-				<VisuallyHidden.Root>
-					<SheetTitle>Menu</SheetTitle>
-					<SheetDescription>Mobile menu</SheetDescription>
-				</VisuallyHidden.Root>
+				<SheetHeader className="sr-only">
+					<SheetTitle className="sr-only">Menu</SheetTitle>
+					<SheetDescription className="sr-only">
+						Mobile menu
+					</SheetDescription>
+				</SheetHeader>
 				<div className=" min-h-screen">
 					<div className="flex flex-col p-10 items-start ">
 						{navBarlinks.map((item, index) => (
