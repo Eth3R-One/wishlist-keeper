@@ -25,7 +25,8 @@ export default function MobileNav({ session }) {
 				<Button
 					variant="link"
 					size="icon"
-					className="dark:text-indigo-950 md:hidden mx-1 "
+					className="dark:text-indigo-950 md:hidden mx-1"
+					aria-label="menu"
 				>
 					<MenuIcon className="dark:text-indigo-200" />
 				</Button>
