@@ -1,6 +1,3 @@
-// import Link from "next/link";
-// import { FcGoogle } from "react-icons/fc";
-
 import { LoginForm } from "./_components/login-form";
 import SocialLogins from "./_components/social-logins";
 
