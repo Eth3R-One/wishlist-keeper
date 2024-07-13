@@ -3,7 +3,6 @@ import Image from "next/image";
 import { GridPattern } from "@/components/GridPattern";
 import Link from "next/link";
 import { FlipWords } from "./ui/flip-words";
-import HeroImage from "../public/images/hero.jpeg";
 
 export async function Hero() {
 	return (
@@ -20,7 +19,7 @@ export async function Hero() {
 					<div className="relative z-10 mx-auto flex w-64 rounded-xl bg-slate-600 shadow-xl md:w-80 lg:w-auto">
 						<Image
 							className="w-full rounded-lg bg-indigo-800"
-							src={HeroImage.src}
+							src="/images/hero.jpeg"
 							width={1080}
 							height={1080}
 							alt="items image"
