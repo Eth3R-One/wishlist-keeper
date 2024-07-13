@@ -19,12 +19,12 @@ export async function Hero() {
 					</div>
 					<div className="relative z-10 mx-auto flex w-64 rounded-xl bg-slate-600 shadow-xl md:w-80 lg:w-auto">
 						<Image
-							className="w-full rounded-lg"
-							src={HeroImage}
+							className="w-full rounded-lg bg-indigo-800"
+							src={HeroImage.src}
 							width={1080}
 							height={1080}
 							alt="items image"
-							placeholder="blur"
+							placeholder="empty"
 						/>
 					</div>
 				</div>
