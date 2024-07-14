@@ -1,8 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
-
-import { FcGoogle } from "react-icons/fc";
+import Image from "next/image";
 
 const SocialLogins = () => {
 	return (
@@ -21,8 +20,13 @@ const SocialLogins = () => {
 				>
 					<div className="rounded-md">
 						<span className="flex w-full items-center justify-center gap-3 rounded-md b px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">
-							<span className="bg-white p-1 rounded-sm">
-								<FcGoogle />
+							<span className="bg-white p-1 rounded-lg">
+								<Image
+									src={"/google.png"}
+									height={24}
+									width={24}
+									alt="google image"
+								/>
 							</span>
 							<span className="text-sm font-semibold leading-6 text-white ">
 								Google
