@@ -4,6 +4,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import { authConfig } from "./auth.config";
 import { userModel } from "./models/user-model";
+import mongoClientPromise from "./database/mongoClientPromise";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
 
 /**
  * 
@@ -57,8 +59,18 @@ export const {
 } = NextAuth({
 	trustHost: true,
 	...authConfig,
+	adapter: MongoDBAdapter(mongoClientPromise, {
+		databaseName: process.env.ENVIRONMENT,
+	}),
+	session: {
+		strategy: "jwt",
+	},
 	providers: [
 		CredentialsProvider({
+			credentials: {
+				email: {},
+				password: {},
+			},
 			async authorize(credentials) {
 				if (credentials == null) return null;
 
@@ -68,7 +80,6 @@ export const {
 							email: credentials?.email,
 						})
 						.lean();
-					console.log(user);
 
 					if (user) {
 						const isMatch = await bcrypt.compare(
@@ -88,7 +99,7 @@ export const {
 					}
 				} catch (err) {
 					console.error(err);
-					throw new Error(err);
+					throw err;
 				}
 			},
 		}),
