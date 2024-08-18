@@ -49,8 +49,6 @@ export function SignupForm() {
 				}),
 			});
 
-			console.log(response);
-
 			if (response.status == 403) {
 				throw new Error(response?.statusText);
 			}
