@@ -1,4 +1,6 @@
+import { auth } from "@/auth";
 import WishlistTable from "@/components/common/wishlist/WishlistTable";
+import { redirect } from "next/navigation";
 
 const list = [
 	{
@@ -52,7 +54,11 @@ const list = [
 	},
 ];
 
-const WishlistPage = () => {
+const WishlistPage = async () => {
+	const session = await auth();
+	if (!session?.user) {
+		redirect("/login");
+	}
 	return (
 		<>
 			<div className="px-4 sm:px-6 lg:px-8 pt-10">
@@ -69,7 +75,6 @@ const WishlistPage = () => {
 							one place. Categorize, organize, and shop smarter.
 						</p>
 					</div>
-					
 				</div>
 				<WishlistTable list={list} />
 			</div>
