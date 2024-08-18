@@ -54,7 +54,7 @@ export default function MobileNav({ session }) {
 							</Link>
 						))}
 
-						{session && (
+						{session?.user && (
 							<Link
 								href={"/wishlist"}
 								className="hover:underline m-2 bg-indigo-500 dark:bg-indigo-950 border border-indigo-950 dark:border-white  rounded text-white gap-1 text-l py-1 p-5"
@@ -67,7 +67,7 @@ export default function MobileNav({ session }) {
 						<>
 							<div className="sticky top-[100vh] pb-10 mb-20 pt-5">
 								<div className=" flex flex-row items-center justify-center gap-5">
-									{session ? (
+									{session?.user ? (
 										<LogoutButton />
 									) : (
 										<>

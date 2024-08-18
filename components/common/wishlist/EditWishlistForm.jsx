@@ -11,7 +11,6 @@ const EditWishlistForm = ({ editModeOpen, setEditModeOpen, item, indx }) => {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const formData = new FormData(event.target);
-		console.log(formData);
 	};
 
 	return (

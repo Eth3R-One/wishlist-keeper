@@ -12,7 +12,7 @@ export default async function MainNav() {
 					{item?.name}
 				</Link>
 			))}
-			{session && (
+			{session?.user && (
 				<Link
 					href={"/wishlist"}
 					className="hover:underline m-2 p-1 px-2 bg-indigo-500 dark:bg-indigo-950 border border-indigo-950 dark:border-white  rounded text-white "
@@ -20,7 +20,7 @@ export default async function MainNav() {
 					Wish list
 				</Link>
 			)}
-			{session ? (
+			{session?.user ? (
 				<LogoutButton />
 			) : (
 				<>

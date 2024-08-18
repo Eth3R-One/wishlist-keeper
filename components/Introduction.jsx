@@ -48,7 +48,7 @@ export function Introduction() {
 				</p>
 				<div className="pt-10 flex items-center justify-center">
 					<Link
-						href={"/login"}
+						href={"/wishlist"}
 						className="px-5 bg-indigo-950 text-slate-200 py-2 rounded-xl"
 					>
 						Get Started Today

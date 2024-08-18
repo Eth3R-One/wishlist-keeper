@@ -34,7 +34,7 @@ const WishlistItem = ({ item, indx }) => {
 					indx % 2 === 0 ? "bg-indigo-100" : "bg-indigo-200"
 				} hover:bg-yellow-50 ${item?.status ? "bg-green-200" : ""}`}
 			>
-				<td className=" pl-10 px-3 py-4 text-sm dark:text-indigo-800 font-bold">
+				<td className=" text-center text-wrap dark:text-indigo-800 font-bold ">
 					{item.title}
 				</td>
 				<td className="whitespace-nowrap px-3 py-4 text-sm dark:text-indigo-800">

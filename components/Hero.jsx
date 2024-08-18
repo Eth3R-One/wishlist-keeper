@@ -49,7 +49,7 @@ export async function Hero() {
 						</p>
 						<div className="mt-8 flex gap-4">
 							<Link
-								href="/login"
+								href="/wishlist"
 								className="bg-indigo-950 dark:bg-slate-200 dark:text-indigo-950 px-7 py-2 text-slate-200 rounded text-xl"
 							>
 								Get started
