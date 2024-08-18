@@ -1,5 +1,6 @@
 "use client";
 
+import { credntialLogin } from "@/app/actions/authActions";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -13,29 +14,39 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export function LoginForm() {
 	const [error, setError] = useState("");
 	const router = useRouter();
-
 	async function onSubmit(event) {
 		event.preventDefault();
+		setError("");
 
 		const formData = new FormData(event.currentTarget);
 
-		// try {
-		// 	// const response = await credntialLogin(formData);
+		try {
+			const response = await credntialLogin(formData);
 
-		// 	if (response?.error) {
-		// 		console?.error(response?.error);
-		// 		setError(response?.error);
-		// 	} else {
-		// 		router.push("/courses");
-		// 	}
-		// } catch (e) {
-		// 	console.error(e.message);
-		// 	setError("An unexpected error occurred. Please try again.");
-		// }
+			if (!response) {
+				throw new Error("User not found");
+			}
+
+			if (response?.error) {
+				console.error(response?.error);
+				setError(response?.error);
+			} else {
+				router.refresh();
+				router.push("/wishlist");
+				toast.success("Logged in");
+			}
+		} catch (e) {
+			console.error(e?.message);
+			toast.error(e?.message);
+			setError(
+				e?.message ?? "An unexpected error occurred. Please try again."
+			);
+		}
 	}
 
 	return (
@@ -47,9 +58,16 @@ export function LoginForm() {
 				<CardDescription className="text-center dark:text-indigo-950">
 					Enter your email below to login to your account
 				</CardDescription>
-				{error && <div className="text-red-600">{error}</div>}
+				{/* {error && <div className="text-red-600">{error}</div>} */}
 			</CardHeader>
 			<CardContent>
+				{error && (
+					<div className="text-center py-2">
+						<p className="text-red-500 bg-red-100 py-1 mx-10 rounded-sm border border-red-300 dark:border-red-600">
+							{error}
+						</p>
+					</div>
+				)}
 				<form onSubmit={onSubmit}>
 					<div className="grid gap-4">
 						<div className="grid gap-2">
