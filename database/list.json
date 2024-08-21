@@ -1,0 +1,22 @@
+{
+   "list": [
+      {
+         "id": "9e4f8e10-b32b-4d25-9e1b-8a5f8b7a9e1e",
+         "title": "Buy Groceries",
+         "link": "https://www.grocerystore.com",
+         "status": true
+      },
+      {
+         "id": "3f5e9e78-b9e0-4a94-9cfc-3e9458d8b3a2",
+         "title": "Read 'Clean Code'",
+         "link": "https://www.bookstore.com/clean-code",
+         "status": false
+      },
+      {
+         "id": "1b7e4e9a-f6c2-4d19-8b1d-4c7f8f6e3a8f",
+         "title": "Finish Project Report",
+         "link": "",
+         "status": false
+      }
+   ]
+}
