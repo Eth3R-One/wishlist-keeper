@@ -1,6 +1,5 @@
 import { auth } from "@/auth";
 import WishlistTable from "@/components/common/wishlist/WishlistTable";
-import { getWishList } from "@/database/queries/wishlist";
 import { redirect } from "next/navigation";
 import { list } from "@/database/list.json";
 
