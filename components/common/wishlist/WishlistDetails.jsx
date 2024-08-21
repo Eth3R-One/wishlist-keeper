@@ -3,6 +3,7 @@ import { PencilIcon, TrashIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 import { Fragment, useRef } from "react";
+import { toast } from "react-toastify";
 
 const WishlistDetails = ({
 	viewDetailsOpen,
@@ -144,7 +145,10 @@ const WishlistDetails = ({
 									<button
 										type="button"
 										className="mt-3 inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-slate-200 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-red-500 sm:col-start-1 sm:mt-0  items-center gap-2"
-										onClick={() => setViewDetailsOpen(false)}
+										onClick={() => {
+											toast.error("Item deleted");
+											setViewDetailsOpen(false);
+										}}
 										ref={cancelButtonRef}
 									>
 										<span>Delete</span>
