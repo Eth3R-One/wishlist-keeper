@@ -1,64 +1,15 @@
 import { auth } from "@/auth";
 import WishlistTable from "@/components/common/wishlist/WishlistTable";
+import { getWishList } from "@/database/queries/wishlist";
 import { redirect } from "next/navigation";
-
-const list = [
-	{
-		id: "abkadfdf154asef12f",
-		title: "Phone",
-		link: "https://www.samsung.com/bd/smartphones/galaxy-s23-ultra/",
-		status: false,
-		priority: "Emergency",
-	},
-	{
-		id: "abkadfdf154asefhhbsfadfadff",
-		title: "Phone cover",
-		link: "https://www.samsung.com/bd/smartphones/galaxy-s23-ultra/",
-		status: false,
-		priority: "Low",
-	},
-	{
-		id: "abkadfdf154asefadfcvzseadfadf",
-		title: "SSD",
-		link: "https://www.samsung.com/bd/smartphones/galaxy-s23-ultra/",
-		status: false,
-		priority: "Medium",
-	},
-	{
-		id: "abkadfdf154asefadertasdfgfadfadf",
-		title: "SSD",
-		link: "https://www.samsung.com/bd/smartphones/galaxy-s23-ultra/",
-		status: true,
-		priority: "Medium",
-	},
-	{
-		id: "abkadfdf154asefadfaryeadfadf",
-		title: "SSD",
-		link: "https://www.samsung.com/bd/smartphones/galaxy-s23-ultra/",
-		status: false,
-		priority: "Medium",
-	},
-	{
-		id: "abkadfdf154asefadgfgfadfadf",
-		title: "SSD",
-		link: "https://www.samsung.com/bd/smartphones/galaxy-s23-ultra/",
-		status: true,
-		priority: "Medium",
-	},
-	{
-		id: "abkadfdf154asefadfadfaddfsdff",
-		title: "SSD",
-		link: "",
-		status: false,
-		priority: "Medium",
-	},
-];
+import { list } from "@/database/list.json";
 
 const WishlistPage = async () => {
 	const session = await auth();
 	if (!session?.user) {
 		redirect("/login");
 	}
+
 	return (
 		<>
 			<div className="px-4 sm:px-6 lg:px-8 pt-10">

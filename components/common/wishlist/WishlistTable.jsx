@@ -1,14 +1,26 @@
 "use client";
 import { useState } from "react";
 import WishlistItem from "./WishlistItem";
+import EditWishlistForm from "./EditWishlistForm";
 
 const WishlistTable = ({ list }) => {
 	const [wishlist, setWishlist] = useState(list ?? []);
+	const [addWishlist, setAddWishlist] = useState(false);
 	return (
 		<>
+			{addWishlist && (
+				<EditWishlistForm
+					editModeOpen={addWishlist}
+					setEditModeOpen={setAddWishlist}
+				/>
+			)}
+
 			<div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
 				<button
 					type="button"
+					onClick={() => {
+						setAddWishlist((prevStatus) => !prevStatus);
+					}}
 					className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 				>
 					Add wishlist
@@ -33,12 +45,7 @@ const WishlistTable = ({ list }) => {
 										>
 											Link
 										</th>
-										<th
-											scope="col"
-											className="px-3 py-3.5 text-left text-sm font-semibold "
-										>
-											Priority
-										</th>
+
 										<th
 											scope="col"
 											className="px-3 py-3.5 text-left text-sm font-semibold "

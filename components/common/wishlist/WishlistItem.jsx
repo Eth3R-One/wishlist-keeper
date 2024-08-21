@@ -51,17 +51,7 @@ const WishlistItem = ({ item, indx }) => {
 						<p className="text-red-500">No link added!</p>
 					)}
 				</td>
-				<td className="whitespace-nowrap px-3 py-4 text-sm dark:text-indigo-800">
-					<span
-						className={`${
-							item.priority == "Emergency"
-								? "text-red-600 bg-red-100 border border-red-500"
-								: ""
-						} px-2 py-1 rounded-lg`}
-					>
-						{item.priority}
-					</span>
-				</td>
+
 				<td
 					className={`whitespace-nowrap px-3 py-4 text-sm dark:text-indigo-800 `}
 				>
