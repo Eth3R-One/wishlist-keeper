@@ -23,6 +23,7 @@ export async function Hero() {
 							width={1080}
 							height={1080}
 							alt="items image"
+							priority={true}
 							placeholder="empty"
 						/>
 					</div>
