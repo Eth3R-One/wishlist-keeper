@@ -34,7 +34,7 @@ const WishlistItem = ({ item, indx }) => {
 					indx % 2 === 0 ? "bg-indigo-100" : "bg-indigo-200"
 				} hover:bg-yellow-50 ${item?.status ? "bg-green-200" : ""}`}
 			>
-				<td className=" text-center text-wrap dark:text-indigo-800 font-bold ">
+				<td className="text-left dark:text-indigo-800 font-bold pl-8 ">
 					{item.title}
 				</td>
 				<td className="whitespace-nowrap px-3 py-4 text-sm dark:text-indigo-800">
@@ -56,30 +56,28 @@ const WishlistItem = ({ item, indx }) => {
 					className={`whitespace-nowrap px-3 py-4 text-sm dark:text-indigo-800 `}
 				>
 					{item?.status ? (
-						<p className=" bg-green-600 rounded-lg text-center text-white">
-							Bought
-						</p>
+						<p className="text-green-600 font-bold">DONE</p>
 					) : (
-						<p>Yet to buy</p>
+						<p className="text-rose-600">Pending</p>
 					)}
 				</td>
-				<td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-					<button
-						onClick={(e) => {
-							e.stopPropagation();
-							setEditModeOpen(true);
-						}}
-						className=" bg-indigo-600 border border-indigo-500 px-5 py-1 rounded-md hover:text-indigo-900 hover:bg-inherit text-slate-200"
-					>
-						Edit
-						<span className="sr-only">{item.name}</span>
-					</button>
-				</td>
-				<td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-					<button className="bg-red-600 px-5 py-2 rounded-md text-red-50 hover:text-red-600 hover:bg-red-200">
-						Delete
-						<span className="sr-only">, {item.name}</span>
-					</button>
+				<td className="relative flex justify-center gap-2  whitespace-nowrap py-4 text-center text-sm font-medium sm:pr-6">
+					<>
+						<button
+							onClick={(e) => {
+								e.stopPropagation();
+								setEditModeOpen(true);
+							}}
+							className=" bg-indigo-600 border border-indigo-500 px-5 py-1 rounded-md hover:text-indigo-900 hover:bg-inherit text-slate-200"
+						>
+							Edit
+							<span className="sr-only">{item.name}</span>
+						</button>
+						<button className="bg-red-600 px-5 py-1 rounded-md text-red-50 hover:text-red-600 hover:bg-red-200">
+							Delete
+							<span className="sr-only">, {item.name}</span>
+						</button>
+					</>
 				</td>
 			</tr>
 		</>

@@ -52,17 +52,10 @@ const WishlistTable = ({ list }) => {
 										>
 											Status
 										</th>
-										<th
-											scope="col"
-											className="relative py-3.5 pl-3 pr-4 sm:pr-6"
-										>
-											<span className="sr-only">Edit</span>
-										</th>
-										<th
-											scope="col"
-											className="relative py-3.5 pl-3 pr-4 sm:pr-6"
-										>
-											<span className="sr-only">Edit</span>
+										<th scope="col" className="relative">
+											<span className="sr-only">
+												Edit and delete
+											</span>
 										</th>
 									</tr>
 								</thead>
