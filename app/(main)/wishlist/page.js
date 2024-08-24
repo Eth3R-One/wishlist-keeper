@@ -3,6 +3,18 @@ import WishlistTable from "@/components/common/wishlist/WishlistTable";
 import { redirect } from "next/navigation";
 import { list } from "@/database/list.json";
 
+export async function generateMetadata({ params, searchParams }, parent) {
+	return {
+		title: "Wish List | Wishlist Organizer",
+		description:
+			"Discover the powerful features of Wishlist Organizer, designed to enhance your online shopping experience.",
+
+		openGraph: {
+			images: [`/api/og?title=List | Wishlist Organizer`],
+		},
+	};
+}
+
 const WishlistPage = async () => {
 	const session = await auth();
 	if (!session?.user) {
