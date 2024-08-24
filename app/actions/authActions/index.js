@@ -30,7 +30,7 @@ export async function credntialLogin(formData) {
 		});
 		return response;
 	} catch (err) {
-		err;
+		console.log(err);
 		// throw err;
 	}
 }
