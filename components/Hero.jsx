@@ -18,21 +18,21 @@ export async function Hero() {
 							patternTransform="translate(112 64)"
 						/>
 					</div>
-					<div className="relative z-10 mx-auto flex w-64 rounded-xl bg-slate-600 shadow-xl md:w-80 lg:w-auto">
+					<div className="relative z-10 mx-auto flex rounded-xl bg-indigo-600 shadow-xl">
 						<Image
 							className="w-full rounded-lg bg-indigo-800"
 							src={HeroImage}
 							width={1080}
 							height={1080}
-							alt="items image"
+							alt="hero image showing various items"
 							priority={true}
 						/>
 					</div>
 				</div>
 
-				<div className=" pt-16 lg:col-span-7 bg-transparent lg:pl-16 lg:pt-0 xl:pl-20">
+				<div className="lg:col-span-7 bg-transparent lg:pl-16 lg:pt-0 xl:pl-20">
 					<div className="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-						<h1 className="text-5xl font-extrabold dark:text-slate-200 text-slate-800 sm:text-6xl">
+						<h1 className="text-5xl md:lg:h-44 h-64 pb-5 font-extrabold dark:text-slate-200 text-slate-800 ">
 							{/* Effortlessly Manage Your Wishlist */}
 							<FlipWords
 								words={[
@@ -40,7 +40,7 @@ export async function Hero() {
 									"All Your Desires, One List",
 									"Shop Smart, Dream Big",
 								]}
-								className={"text-indigo-900"}
+								className={"text-indigo-900 "}
 								duration={5000}
 							/>
 						</h1>
