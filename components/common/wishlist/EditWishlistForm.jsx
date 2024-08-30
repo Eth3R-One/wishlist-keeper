@@ -20,6 +20,11 @@ const EditWishlistForm = ({
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const formData = new FormData(event.target);
+		const titleLength = formData.get("title").trim().length;
+		if (titleLength == 0) {
+			toast.error("What? Title can't be space only!!");
+			return;
+		}
 
 		if (add) {
 			setWishlist([
