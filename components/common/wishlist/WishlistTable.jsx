@@ -12,6 +12,9 @@ const WishlistTable = ({ list }) => {
 				<EditWishlistForm
 					editModeOpen={addWishlist}
 					setEditModeOpen={setAddWishlist}
+					add={true}
+					wishlist={wishlist}
+					setWishlist={setWishlist}
 				/>
 			)}
 
@@ -65,6 +68,8 @@ const WishlistTable = ({ list }) => {
 											key={item?.id}
 											item={item}
 											indx={indx}
+											wishlist={wishlist}
+											setWishlist={setWishlist}
 										/>
 									))}
 								</tbody>

@@ -6,12 +6,54 @@ import { Pen } from "lucide-react";
 import { Fragment, useRef } from "react";
 import { toast } from "react-toastify";
 
-const EditWishlistForm = ({ editModeOpen, setEditModeOpen, item, indx }) => {
+const EditWishlistForm = ({
+	editModeOpen,
+	setEditModeOpen,
+	item,
+	indx,
+	add,
+	wishlist,
+	setWishlist,
+}) => {
 	const cancelButtonRef = useRef(null);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const formData = new FormData(event.target);
+
+		if (add) {
+			setWishlist([
+				...wishlist,
+				{
+					id: Date.now(),
+					title: formData.get("title"),
+					title: formData.get("title"),
+					link: formData.get("link"),
+					status: formData.get("done") ? true : false,
+				},
+			]);
+		} else {
+			const newData = {
+				...item,
+				title: formData.get("title"),
+				title: formData.get("title"),
+				link: formData.get("link"),
+				status: formData.get("done") ? true : false,
+			};
+
+			const newWishlist = wishlist.map((prevItem) => {
+				if (prevItem?.id == item?.id) {
+					return newData;
+				} else {
+					return prevItem;
+				}
+			});
+
+			setWishlist(newWishlist);
+		}
+
+		toast.success(`Item ${add ? "Added" : "Updated"}`);
+		setEditModeOpen(false);
 	};
 
 	return (
@@ -68,7 +110,7 @@ const EditWishlistForm = ({ editModeOpen, setEditModeOpen, item, indx }) => {
 											as="h3"
 											className=" text-3xl font-semibold leading-6 text-center text-indigo-900"
 										>
-											Update Wishlist Details
+											{`${add ? "Add" : "Update"} Wishlist Details`}
 										</Dialog.Title>
 										<form className="mt-2" onSubmit={handleSubmit}>
 											<div>
@@ -111,44 +153,40 @@ const EditWishlistForm = ({ editModeOpen, setEditModeOpen, item, indx }) => {
 											</div>
 
 											<div className="flex items-center gap-2 justify-items-center">
-												<fieldset>
-													<div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:py-6">
-														<div className="mt-4 sm:col-span-2 sm:mt-0">
-															<div className="max-w-lg space-y-6">
-																<div className="relative flex gap-x-3">
-																	<div className="flex h-6 items-center">
+												<div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:py-6">
+													<div className="mt-4 sm:col-span-2 sm:mt-0">
+														<div className="max-w-lg space-y-6">
+															<div className="relative flex gap-x-3">
+																<div className="flex h-6 items-center">
+																	<fieldset>
 																		<input
 																			id="done"
 																			name="done"
 																			type="checkbox"
 																			className="h-4 w-4 rounded-lg border-gray-300 focus:ring-indigo-600 "
 																		/>
-																	</div>
-																	<div className="text-sm leading-6">
-																		<label
-																			htmlFor="done"
-																			className="font-medium text-indigo-900"
-																		>
-																			Done (as in bought)
-																		</label>
-																	</div>
+																	</fieldset>
+																</div>
+																<div className="text-sm leading-6">
+																	<label
+																		htmlFor="done"
+																		className="font-medium text-indigo-900"
+																	>
+																		Done
+																	</label>
 																</div>
 															</div>
 														</div>
 													</div>
-												</fieldset>
+												</div>
 											</div>
 
 											<div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
 												<button
 													type="submit"
 													className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold  hover:text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:col-start-2"
-													onClick={() => {
-														toast.success("Item updated");
-														setEditModeOpen(false);
-													}}
 												>
-													Update
+													{add ? "Add" : "Update"}
 												</button>
 												<button
 													type="button"

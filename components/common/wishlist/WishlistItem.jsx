@@ -5,7 +5,7 @@ import { useState } from "react";
 import EditWishlistForm from "./EditWishlistForm";
 import WishlistDetails from "./WishlistDetails";
 
-const WishlistItem = ({ item, indx }) => {
+const WishlistItem = ({ item, indx, wishlist, setWishlist }) => {
 	const [editModeOpen, setEditModeOpen] = useState(false);
 	const [viewDetailsOpen, setViewDetailsOpen] = useState(false);
 
@@ -17,6 +17,8 @@ const WishlistItem = ({ item, indx }) => {
 					setEditModeOpen={setEditModeOpen}
 					item={item}
 					indx={indx}
+					wishlist={wishlist}
+					setWishlist={setWishlist}
 				/>
 			)}
 			{viewDetailsOpen && (
@@ -26,6 +28,8 @@ const WishlistItem = ({ item, indx }) => {
 					item={item}
 					indx={indx}
 					setEditModeOpen={setEditModeOpen}
+					wishlist={wishlist}
+					setWishlist={setWishlist}
 				/>
 			)}
 			<tr
@@ -35,10 +39,10 @@ const WishlistItem = ({ item, indx }) => {
 				} hover:bg-yellow-50 ${item?.status ? "bg-green-200" : ""}`}
 			>
 				<td className="text-left dark:text-indigo-800 font-bold pl-8 ">
-					{item.title}
+					{item?.title}
 				</td>
 				<td className="whitespace-nowrap px-3 py-4 text-sm dark:text-indigo-800">
-					{item.link ? (
+					{item?.link ? (
 						<Link
 							href={item?.link}
 							target="_blank"
@@ -71,11 +75,11 @@ const WishlistItem = ({ item, indx }) => {
 							className=" bg-indigo-600 border border-indigo-500 px-5 py-1 rounded-md hover:text-indigo-900 hover:bg-inherit text-slate-200"
 						>
 							Edit
-							<span className="sr-only">{item.name}</span>
+							<span className="sr-only">{item?.name}</span>
 						</button>
 						<button className="bg-red-600 px-5 py-1 rounded-md text-red-50 hover:text-red-600 hover:bg-red-200">
 							Delete
-							<span className="sr-only">, {item.name}</span>
+							<span className="sr-only">, {item?.name}</span>
 						</button>
 					</>
 				</td>

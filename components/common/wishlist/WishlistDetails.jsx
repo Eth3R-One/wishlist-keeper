@@ -11,8 +11,28 @@ const WishlistDetails = ({
 	item,
 	indx,
 	setEditModeOpen,
+	wishlist,
+	setWishlist,
 }) => {
 	const cancelButtonRef = useRef(null);
+
+	// console.log(indx);
+	// console.log(item);
+	console.log(wishlist);
+	console.log(setWishlist);
+	const handleDelete = (event) => {
+		if (confirm("Are you sure?")) {
+			const updatedList = wishlist?.filter(
+				(wishlistItem) => wishlistItem?.id != item?.id
+			);
+			console.log(updatedList);
+
+			setWishlist(updatedList);
+
+			toast.error("Item deleted");
+			setViewDetailsOpen(false);
+		}
+	};
 
 	return (
 		<Transition.Root show={viewDetailsOpen} as={Fragment}>
@@ -106,22 +126,22 @@ const WishlistDetails = ({
 													</p>
 												)}
 											</div>
-											<div className="flex flex-row items-center justify-center gap-5">
-												{" "}
-												<span className="text-xl font-extrabold">
-													Priority:{" "}
-												</span>
-												<span className="text-lg">
-													{item?.priority}
-												</span>
-											</div>
+
 											<div className="flex flex-row items-center justify-center gap-5">
 												{" "}
 												<span className="text-xl font-extrabold">
 													Status:{" "}
 												</span>
 												<span className="text-lg">
-													{item?.status}
+													<p
+														className={
+															item?.status
+																? "text-green-600"
+																: "text-red-600"
+														}
+													>
+														{item?.status ? "Done" : "Pending"}
+													</p>
 												</span>
 											</div>
 										</div>
@@ -145,10 +165,7 @@ const WishlistDetails = ({
 									<button
 										type="button"
 										className="mt-3 inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-slate-200 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-red-500 sm:col-start-1 sm:mt-0  items-center gap-2"
-										onClick={() => {
-											toast.error("Item deleted");
-											setViewDetailsOpen(false);
-										}}
+										onClick={handleDelete}
 										ref={cancelButtonRef}
 									>
 										<span>Delete</span>
