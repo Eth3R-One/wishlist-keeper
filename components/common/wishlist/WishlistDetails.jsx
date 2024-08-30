@@ -16,16 +16,11 @@ const WishlistDetails = ({
 }) => {
 	const cancelButtonRef = useRef(null);
 
-	// console.log(indx);
-	// console.log(item);
-	console.log(wishlist);
-	console.log(setWishlist);
 	const handleDelete = (event) => {
 		if (confirm("Are you sure?")) {
 			const updatedList = wishlist?.filter(
 				(wishlistItem) => wishlistItem?.id != item?.id
 			);
-			console.log(updatedList);
 
 			setWishlist(updatedList);
 
