@@ -50,7 +50,9 @@ export function SignupForm() {
 			});
 
 			if (response.status == 403) {
-				throw new Error(response?.statusText);
+				toast.error(response?.statusText ?? "Something went wrong");
+				setError(response?.statusText ?? "Something went wrong");
+				// throw new Error(response?.statusText);
 			}
 
 			if (response?.status == 201) {
