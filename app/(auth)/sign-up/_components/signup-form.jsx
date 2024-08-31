@@ -14,17 +14,19 @@ import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import Loader from "@/components/shared/Loader";
 
 export function SignupForm() {
 	const router = useRouter();
 	const [error, setError] = useState();
+	const [submitted, setSubmitted] = useState(false);
 
 	const [passwordMisMatchError, setPasswordMisMatchError] = useState(false);
 
 	const handleSubmit = async (event) => {
 		event?.preventDefault();
 		setError(false);
-
+		setSubmitted(true);
 		try {
 			const formDate = new FormData(event?.currentTarget);
 			const firstName = formDate.get("first-name");
@@ -52,6 +54,8 @@ export function SignupForm() {
 			if (response.status == 403) {
 				toast.error(response?.statusText ?? "Something went wrong");
 				setError(response?.statusText ?? "Something went wrong");
+				setSubmitted(false);
+				return;
 				// throw new Error(response?.statusText);
 			}
 
@@ -63,6 +67,7 @@ export function SignupForm() {
 			console.log(err);
 			toast.error(err?.message ?? "Something went wrong");
 			setError(err?.message ?? "Something went wrong");
+			setSubmitted(false);
 		}
 	};
 
@@ -93,6 +98,7 @@ export function SignupForm() {
 									name="first-name"
 									placeholder="Max"
 									required
+									disabled={submitted}
 									className="bg-slate-200 text-indigo-950 placeholder:text-slate-500"
 								/>
 							</div>
@@ -103,6 +109,7 @@ export function SignupForm() {
 									name="last-name"
 									placeholder="Robinson"
 									required
+									disabled={submitted}
 									className="bg-slate-200 text-indigo-950 placeholder:text-slate-500"
 								/>
 							</div>
@@ -115,6 +122,7 @@ export function SignupForm() {
 								type="email"
 								placeholder="m@example.com"
 								required
+								disabled={submitted}
 								className="bg-slate-200 text-indigo-950 placeholder:text-slate-500"
 							/>
 						</div>
@@ -124,6 +132,8 @@ export function SignupForm() {
 								id="password"
 								name="password"
 								type="password"
+								disabled={submitted}
+								required
 								className="bg-slate-200 text-indigo-950 placeholder:text-slate-500"
 							/>
 						</div>
@@ -134,14 +144,16 @@ export function SignupForm() {
 								name="confirmPassword"
 								type="password"
 								required
+								disabled={submitted}
 								className="bg-slate-200 text-indigo-950 placeholder:text-slate-500"
 							/>
 						</div>
 						<Button
 							type="submit"
 							className="w-full bg-indigo-700 dark:bg-indigo-950 text-slate-50"
+							disabled={submitted}
 						>
-							Create an account
+							{submitted ? <Loader /> : "Create an account"}
 						</Button>
 					</div>
 				</form>
