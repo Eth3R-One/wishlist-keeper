@@ -1,6 +1,7 @@
 "use client";
 
 import { credntialLogin } from "@/app/actions/authActions";
+import Loader from "@/components/shared/Loader";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -18,10 +19,12 @@ import { toast } from "react-toastify";
 
 export function LoginForm() {
 	const [error, setError] = useState("");
+	const [submitted, setSubmitted] = useState(false);
 	const router = useRouter();
 	async function onSubmit(event) {
 		event.preventDefault();
 		setError("");
+		setSubmitted(true);
 
 		const formData = new FormData(event.currentTarget);
 
@@ -43,6 +46,8 @@ export function LoginForm() {
 		} catch (e) {
 			console.error(e?.message);
 			toast.error(e?.message);
+			setSubmitted(false);
+
 			setError(
 				e?.message ?? "An unexpected error occurred. Please try again."
 			);
@@ -81,6 +86,7 @@ export function LoginForm() {
 								placeholder="m@example.com"
 								className="bg-slate-200 text-indigo-950"
 								required
+								disabled={submitted}
 							/>
 						</div>
 						<div className="grid gap-2">
@@ -95,13 +101,15 @@ export function LoginForm() {
 								type="password"
 								className="bg-slate-200"
 								required
+								disabled={submitted}
 							/>
 						</div>
 						<Button
 							type="submit"
-							className="w-full dark:bg-indigo-800 dark:hover:bg-indigo-900 text-slate-100 bg-indigo-600 hover:bg-indigo-700 "
+							className="w-full dark:bg-indigo-800 dark:hover:bg-indigo-900 text-slate-100 bg-indigo-600 hover:bg-indigo-700"
+							disabled={submitted}
 						>
-							Login
+							{submitted ? <Loader /> : "Login"}
 						</Button>
 					</div>
 				</form>
