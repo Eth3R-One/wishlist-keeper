@@ -11,6 +11,9 @@ const SignUpPage = async () => {
 	return (
 		<div className="w-full flex-col h-screen flex items-center justify-center">
 			<div className="container">
+				<div className="bg-gray-100 mx-auto max-w-sm dark:bg-gray-200 rounded  border border-rose-300 my-5">
+					<p className="text-rose-600 text-center">{`There's a demo user info given in login page`}</p>
+				</div>
 				<SignupForm />
 				<SocialLogins />
 			</div>
